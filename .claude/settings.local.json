@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where python)",
+      "Bash(# Try to find any usable runtime ls /usr/bin/)",
+      "Bash(python3:*)",
+      "Bash(pdftotext -layout \"קורס והרצאות לארגונים.pdf\" -)",
+      "Bash(cp \"קורס והרצאות לארגונים.pdf\" temp.pdf)",
+      "Bash(pdftotext temp.pdf -)",
+      "Bash(rm temp.pdf)"
+    ]
+  }
+}
