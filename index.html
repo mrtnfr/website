@@ -48,6 +48,9 @@
             headline: ['"Assistant"', 'sans-serif'],
             body: ['"Assistant"', 'sans-serif'],
           },
+          screens: {
+            'desk': '981px',
+          },
         }
       }
     }
@@ -149,7 +152,7 @@
       <!-- NavMenu Component -->
       <!-- component: NavMenu (031b5f46-3036-447e-b94f-234bad40de80) -->
 <div v-scope="{ ...{&quot;activePage&quot;:&quot;home&quot;,&quot;homeHref&quot;:&quot;https://p.superdesign.dev/draft/fe7de560-0ebb-4fec-8989-3a2267b08fdb&quot;,&quot;bookHref&quot;:&quot;https://p.superdesign.dev/draft/5f4a1c72-9636-4ccf-bb59-f7b98b5a901d&quot;,&quot;consultationHref&quot;:&quot;https://p.superdesign.dev/draft/6b7e3533-f418-4b77-ace4-78c113f66da1&quot;,&quot;coursesHref&quot;:&quot;https://p.superdesign.dev/draft/3f036137-cc98-450b-8bd6-b25db0c2131d&quot;,&quot;videoHref&quot;:&quot;https://p.superdesign.dev/draft/f37afaab-aec8-4e86-9ace-4a97db8943dd&quot;,&quot;blogHref&quot;:&quot;https://p.superdesign.dev/draft/7e16349d-61aa-418a-86c8-b3b7a9f6c5af&quot;}, $emit() {} }">
-<nav class="hidden md:flex items-center justify-center gap-1 flex-1" id="main-nav">
+<nav class="hidden desk:flex items-center justify-center gap-1 flex-1" id="main-nav">
   <a href="#hero"      data-section="hero"      class="nav-link px-4 py-2.5 text-[16px] font-semibold text-warm-800 hover:text-taupe hover:bg-warm-100 rounded-xl transition-all duration-200 text-right block" style="direction: rtl; text-decoration: none;">בית</a>
   <a href="#services"  data-section="services"  class="nav-link px-4 py-2.5 text-[16px] font-semibold text-warm-800 hover:text-taupe hover:bg-warm-100 rounded-xl transition-all duration-200 text-right block" style="direction: rtl; text-decoration: none;">שירותים</a>
   <a href="#book"      data-section="book"      class="nav-link px-4 py-2.5 text-[16px] font-semibold text-warm-800 hover:text-taupe hover:bg-warm-100 rounded-xl transition-all duration-200 text-right block" style="direction: rtl; text-decoration: none;">הספר "שלום פרפר"</a>
@@ -169,14 +172,14 @@
         </a>
         
         <!-- Mobile Hamburger -->
-        <button class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-warm-700 hover:bg-warm-100 transition-colors" @click="isMobileMenuOpen = !isMobileMenuOpen" :aria-expanded="isMobileMenuOpen.toString()" aria-controls="mobile-menu" aria-label="תפריט ניווט">
+        <button class="desk:hidden flex items-center justify-center w-10 h-10 rounded-lg text-warm-700 hover:bg-warm-100 transition-colors" @click="isMobileMenuOpen = !isMobileMenuOpen" :aria-expanded="isMobileMenuOpen.toString()" aria-controls="mobile-menu" aria-label="תפריט ניווט">
           <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" v-show="isMobileMenuOpen" class="md:hidden pb-4 border-t border-warm-200 pt-3">
+    <div id="mobile-menu" v-show="isMobileMenuOpen" class="desk:hidden pb-4 border-t border-warm-200 pt-3">
       <a href="#hero"      data-section="hero"      @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">בית</a>
       <a href="#services"  data-section="services"  @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">שירותים</a>
       <a href="#book"      data-section="book"      @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">הספר "שלום פרפר"</a>
@@ -863,7 +866,7 @@
 
   <!-- Mobile WhatsApp FAB -->
   <a id="whatsapp-fab" href="https://chat.whatsapp.com/KlA0q0KjTgEJAKyt7ZfoYN" target="_blank" rel="noopener noreferrer"
-     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 opacity-0 pointer-events-none md:hidden"
+     class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 opacity-0 pointer-events-none desk:hidden"
      style="background-color: #25D366;">
     <iconify-icon icon="fa6-brands:whatsapp" class="text-3xl text-white"></iconify-icon>
   </a>
