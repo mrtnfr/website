@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quick Wins — About Section (Preview)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            warm: {
+              50:  '#FAF7F2', 100: '#F2EEE7', 200: '#E8E2D9',
+              300: '#D9D2C7', 400: '#C4B8AD', 500: '#A89080',
+              600: '#9B8B7E', 700: '#7D6F67', 800: '#5A524D', 900: '#3D3530',
+            },
+            taupe: { DEFAULT: '#A37D6A', dark: '#8B6A5A', light: '#C1A496' },
+            sage:  { DEFAULT: '#71A383', dark: '#5F9170' },
+          },
+          fontFamily: {
+            headline: ['"Assistant"', 'sans-serif'],
+            body:     ['"Assistant"', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    * { font-family: 'Assistant', sans-serif; }
+    h1,h2,h3,h4,h5,h6 { font-family: 'Assistant', sans-serif; }
+    .card-hover {
+      transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 24px 48px -8px rgba(163,125,106,0.25);
+    }
+  </style>
+</head>
+<body class="bg-warm-50">
+
+  <!-- ─── PREVIEW BANNER ─────────────────────────── -->
+  <div class="bg-taupe text-white text-center py-2 text-sm font-semibold tracking-wide">
+    תצוגה מקדימה — Quick Wins על הסקשן הקיים
+  </div>
+
+  <!-- ─── ABOUT SECTION ─────────────────────────── -->
+  <section id="about" class="py-16 lg:py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+        <!-- ── Text col ── -->
+        <div class="text-right lg:order-2 flex flex-col">
+          <h2 class="font-headline text-3xl md:text-4xl lg:text-5xl font-bold text-warm-900 tracking-tight">
+            נועה פרידמן
+          </h2>
+          <p class="mt-2 text-warm-600 font-medium text-lg">קלינאית תקשורת התפתחותית | M.A</p>
+          <p class="mt-5 text-warm-700 leading-relaxed text-base">
+            אני מאמינה שכל ילד מגיע עם יכולות תקשורת מדהימות — ותפקידנו כמבוגרים הוא לזהות אותן, לטפח אותן ולתת להן מקום לפרוח. לאורך שנות עבודתי כקלינאית תקשורת, ליוויתי מאות משפחות בדרך לתקשורת טובה ומשמעותית יותר.
+          </p>
+          <p class="mt-4 text-warm-700 leading-relaxed text-base">
+            הגישה שלי מתמקדת בהעצמת ההורים — אתם המומחים הכי גדולים לילדים שלכם. אני כאן לתת לכם את הכלים, הביטחון והידע כדי שתוכלו ללוות את ילדכם בצורה הטובה ביותר.
+          </p>
+        </div>
+
+        <!-- ── Image col ── -->
+        <div class="relative lg:order-1 lg:h-full">
+          <!-- Photo placeholder (same proportions as real image) -->
+          <div class="rounded-3xl overflow-hidden shadow-xl bg-warm-100 flex items-center justify-center"
+               style="min-height: 420px;">
+            <div class="text-center text-warm-400 p-8">
+              <iconify-icon icon="lucide:image" class="text-5xl mb-3 block"></iconify-icon>
+              <p class="text-sm font-medium">תמונה של נועה</p>
+              <p class="text-xs mt-1 opacity-60">(placeholder — התמונה האמיתית תוצג ב-index.html)</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end grid -->
+
+      <!-- ─────────────────────────────────────────────────
+           QUICK WIN 4: section label above the cards
+      ──────────────────────────────────────────────────── -->
+      <p class="text-center text-xs font-bold uppercase tracking-widest text-taupe/70 mt-14 mb-1">
+        מה אומרים עליי
+      </p>
+
+      <!-- ─────────────────────────────────────────────────
+           QUICK WIN 5: staggered grid (middle card pushed down)
+           QUICK WIN 1: quote icon on each card
+           QUICK WIN 2: right border accent
+           QUICK WIN 3: text bumped to text-base
+      ──────────────────────────────────────────────────── -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4 relative z-10">
+
+        <!-- Card 1 -->
+        <div class="bg-white rounded-2xl p-5 border border-warm-100 border-r-4 border-r-taupe card-hover"
+             style="box-shadow: 0 8px 40px -4px rgba(163,125,106,0.16), 0 2px 8px -2px rgba(0,0,0,0.06);">
+          <!-- QW1: quote icon -->
+          <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/30 mb-3 block"></iconify-icon>
+          <!-- QW3: text-base instead of text-sm -->
+          <p class="text-base text-warm-700 leading-relaxed text-right">
+            "נועה היא קלינאית מדהימה עם לב ענק. ההרצאות שלה פתחו לי עיניים לגבי ההתפתחות של הילדים שלי."
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-taupe rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-sm font-bold">מ</span>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-semibold text-warm-800">מיכל דליות</p>
+              <p class="text-xs text-warm-500">Super Nanny</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 — QW5: pushed down with mt-6 to stagger -->
+        <div class="bg-white rounded-2xl p-5 border border-warm-100 border-r-4 border-r-sage card-hover md:mt-6"
+             style="box-shadow: 0 8px 40px -4px rgba(163,125,106,0.16), 0 2px 8px -2px rgba(0,0,0,0.06);">
+          <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/30 mb-3 block"></iconify-icon>
+          <p class="text-base text-warm-700 leading-relaxed text-right">
+            "גישה מקצועית, עדכנית ומבוססת מחקר. נועה מצליחה להעביר מידע מורכב בצורה ברורה ונגישה להורים."
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-sage rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-sm font-bold">א</span>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-semibold text-warm-800">ד"ר אריאלה יוקל</p>
+              <p class="text-xs text-warm-500">פסיכולוגית התפתחותית</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="bg-white rounded-2xl p-5 border border-warm-100 border-r-4 border-r-taupe-dark card-hover"
+             style="box-shadow: 0 8px 40px -4px rgba(163,125,106,0.16), 0 2px 8px -2px rgba(0,0,0,0.06);">
+          <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/30 mb-3 block"></iconify-icon>
+          <p class="text-base text-warm-700 leading-relaxed text-right">
+            "הקורס של נועה שינה את הדרך שבה אני מתקשרת עם הבן שלי. כלים אמיתיים שעובדים כבר מהיום הראשון."
+          </p>
+          <div class="mt-4 flex items-center gap-3">
+            <div class="w-9 h-9 bg-taupe-dark rounded-full flex items-center justify-center flex-shrink-0">
+              <span class="text-white text-sm font-bold">א</span>
+            </div>
+            <div class="text-right">
+              <p class="text-sm font-semibold text-warm-800">איריס ברטל</p>
+              <p class="text-xs text-warm-500">אמא לבן בן שנה</p>
+            </div>
+          </div>
+        </div>
+
+      </div><!-- end cards grid -->
+
+    </div>
+  </section>
+
+  <!-- ─── LEGEND ─────────────────────────────────── -->
+  <div class="max-w-2xl mx-auto px-6 py-10 text-right">
+    <p class="text-xs font-bold uppercase tracking-widest text-warm-400 mb-4">שינויים שהוחלו (Quick Wins)</p>
+    <ul class="space-y-2 text-sm text-warm-600">
+      <li>✦ <strong>אייקון ציטוט</strong> — נוסף מעל כל כרטיס</li>
+      <li>✦ <strong>קו גבול צבעוני</strong> — border-r-4 בגוון taupe / sage על כל כרטיס</li>
+      <li>✦ <strong>טקסט גדול יותר</strong> — text-base במקום text-sm</li>
+      <li>✦ <strong>כותרת "מה אומרים עליי"</strong> — מעל הכרטיסים</li>
+      <li>✦ <strong>הזזה של הכרטיס האמצעי</strong> — mt-6 לשבירת הרשת האחידה</li>
+    </ul>
+  </div>
+
+</body>
+</html>
