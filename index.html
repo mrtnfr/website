@@ -32,12 +32,28 @@
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
   <style>
     html, body { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+    .skip-link {
+      position: absolute; top: -100%; right: 50%; transform: translateX(50%);
+      background: #71A383; color: white; padding: 10px 28px; border-radius: 0 0 10px 10px;
+      font-weight: 700; font-size: 1rem; z-index: 10000; text-decoration: none;
+    }
+    .skip-link:focus { top: 0; outline: 3px solid #3D3530; outline-offset: 2px; }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
     @media (max-width: 767px) {
       .text-xs  { font-size: 0.875rem !important; line-height: 1.4rem !important; }
       .text-sm  { font-size: 1rem !important; line-height: 1.6rem !important; }
       .text-base{ font-size: 1.125rem !important; line-height: 1.75rem !important; }
     }
     .nav-link.active { color: #A37D6A !important; background: #F5EFE6; border-radius: 0.75rem; }
+    .nav-link:focus-visible { outline: 2px solid #71A383; outline-offset: 2px; border-radius: 0.75rem; }
+    a:focus-visible, button:focus-visible { outline: 2px solid #71A383; outline-offset: 2px; border-radius: 4px; }
   </style>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
@@ -227,7 +243,8 @@
   </script>
 </head>
 <body>
-  <div class="grain-overlay"></div>
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+  <div class="grain-overlay" aria-hidden="true"></div>
 
   <div class="min-h-screen bg-warm-50">
     <!-- Sticky Header -->
@@ -239,7 +256,7 @@
       <!-- Logo (Right in RTL) -->
       <div class="flex-1 flex justify-start">
         <a href="#hero" style="text-decoration:none;">
-        <img src="logo-dark.svg" alt="logo" class="h-8 w-auto object-contain"width="169" height="32" >
+        <img src="logo-dark.svg" alt="מתחילים לדבר - נועה פרידמן" class="h-8 w-auto object-contain"width="169" height="32" >
         </a>
       </div>
 
@@ -261,19 +278,19 @@
       <!-- CTA and Mobile Hamburger (Left in RTL) -->
       <div class="flex-1 flex justify-end items-center gap-4">
         <a :href="whatsappHref" target="_blank" rel="noopener noreferrer" class="hidden md:inline-flex px-6 py-3 items-center gap-2 text-sm font-semibold text-white bg-sage hover:bg-sage-dark rounded-full shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg">
-          <iconify-icon icon="fa6-brands:whatsapp" class="text-lg"></iconify-icon>
+          <iconify-icon aria-hidden="true" icon="fa6-brands:whatsapp" class="text-lg"></iconify-icon>
           בואו להתייעץ איתי
         </a>
         
         <!-- Mobile Hamburger -->
         <button class="desk:hidden flex items-center justify-center w-10 h-10 rounded-lg text-warm-700 hover:bg-warm-100 transition-colors" @click="isMobileMenuOpen = !isMobileMenuOpen" :aria-expanded="isMobileMenuOpen.toString()" aria-controls="mobile-menu" aria-label="תפריט ניווט">
-          <iconify-icon icon="lucide:menu" class="text-2xl"></iconify-icon>
+          <iconify-icon aria-hidden="true" icon="lucide:menu" class="text-2xl"></iconify-icon>
         </button>
       </div>
     </div>
 
     <!-- Mobile Menu -->
-    <div id="mobile-menu" v-show="isMobileMenuOpen" class="desk:hidden pb-4 border-t border-warm-200 pt-3 -mx-6">
+    <nav id="mobile-menu" v-show="isMobileMenuOpen" :aria-hidden="(!isMobileMenuOpen).toString()" role="navigation" aria-label="ניווט נייד" class="desk:hidden pb-4 border-t border-warm-200 pt-3 -mx-6">
       <a href="#hero"      data-section="hero"      @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">בית</a>
       <a href="#services"  data-section="services"  @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">ייעוץ והרצאות</a>
       <a href="#book"      data-section="book"      @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">הספר "שלום פרפר"</a>
@@ -282,7 +299,7 @@
       <a href="#about"     data-section="about"     @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">אודות</a>
       <a href="#contact"   data-section="contact"   @click="isMobileMenuOpen=false" class="nav-link block px-4 py-3 text-sm font-medium text-warm-800 hover:bg-warm-100 rounded-lg" style="text-decoration:none;">צרו קשר</a>
     </div>
-  </div>
+  </nav>
 </header>
 </div>
 <!-- /component: StickyHeader (08800e2f-fba8-4738-b83e-b899e14ec593) -->
@@ -370,15 +387,15 @@
               <p class="text-warm-700 text-sm mb-5">ליווי מקצועי וממוקד אצלך בבית, בסביבה הטבעית של התינוק.</p>
               <ul class="space-y-3">
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">מיפוי יכולות התקשורת והשפה של התינוק</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">כלים פרקטיים לקידום השפה ביומיום שלכם</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">מענה מקצועי לשאלות ספציפיות והמלצות להמשך</span>
                 </li>
               </ul>
@@ -395,15 +412,15 @@
               <p class="text-warm-700 text-sm mb-5">כל מה שצריך לדעת על התפתחות שפה עד גיל שנה.</p>
               <ul class="space-y-3">
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">4 מפגשים חווייתיים על אבני הדרך הקריטיות להתפתחות התקשורת</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">איך תינוקות לומדים דרך משחק והקראת ספרים</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">מענה לשאלות נפוצות לגבי חשיפה למסכים, שימוש במוצץ, דו-לשוניות ועוד</span>
                 </li>
               </ul>
@@ -421,15 +438,15 @@
 
               <ul class="space-y-3">
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">מגוון נושאים: מיתוסים נפוצים, התפתחות תקשורת, הקראה מינקות ועוד</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">חיבור אמיתי לשטח דרך דוגמאות וסרטונים</span>
                 </li>
                 <li class="flex items-start gap-3">
-                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
+                  <div class="w-5 h-5 bg-sage/15 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5"><iconify-icon aria-hidden="true" icon="lucide:check" class="text-xs text-sage"></iconify-icon></div>
                   <span class="text-sm text-warm-700 font-medium">התאמה אישית של התוכן לפי קהל היעד</span>
                 </li>
               </ul>
@@ -442,7 +459,7 @@
           <p class="text-warm-700 text-lg mb-5">רוצים לקבל מידע נוסף או להתייעץ איתי? שלחו לי הודעה ובואו נבין מה הכי מתאים לכם</p>
           <a id="services-cta-link" href="https://wa.me/972524241685" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-sage text-white font-semibold text-base rounded-full border-2 border-transparent btn-primary shadow-lg shadow-sage/20 hover:bg-sage-dark">
-            <iconify-icon icon="fa6-brands:whatsapp" class="text-lg"></iconify-icon>
+            <iconify-icon aria-hidden="true" icon="fa6-brands:whatsapp" class="text-lg"></iconify-icon>
             בואו להתייעץ איתי
           </a>
         </div>
@@ -508,32 +525,32 @@
             <!-- 6 Reasons -->
             <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
               <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
-                <iconify-icon icon="lucide:hand-metal" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:hand-metal" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
                 <p class="text-white text-sm font-semibold leading-snug">עידוד מחוות תקשורתיות</p>
                 <p class="text-white/80 text-sm mt-1">הספר מזמין את התינוק להצביע, לנפנף לשלום ולתקשר עוד לפני המילים הראשונות.</p>
               </div>
               <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
-                <iconify-icon icon="lucide:message-square-text" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:message-square-text" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
                 <p class="text-white text-sm font-semibold leading-snug">למידה מתוך הקשר</p>
                 <p class="text-white/80 text-sm mt-1">בזכות חזרה על מילים בתוך רצף הגיוני, התינוק קולט שפה חדשה בקלות ובצורה הכי טבעית שיש.</p>
               </div>
               <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
-                <iconify-icon icon="lucide:repeat-2" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:repeat-2" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
                 <p class="text-white text-sm font-semibold leading-snug">מילים שקל וכיף לחקות</p>
                 <p class="text-white/80 text-sm mt-1">בחרתי עבורכם מילים פשוטות וקלות להגייה המעודדות התנסות בחיקוי קולי.</p>
               </div>
               <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
-                <iconify-icon icon="lucide:lightbulb" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:lightbulb" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
                 <p class="text-white text-sm font-semibold leading-snug">הרחבת אוצר המילים</p>
                 <p class="text-white/80 text-sm mt-1">מעבר למילים בודדות, הספר חושף את הפעוט למושגים, צירופים ומשפטים קצרים.</p>
               </div>
               <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
-                <iconify-icon icon="lucide:image" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:image" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
                 <p class="text-white text-sm font-semibold leading-snug">לראות את מה ששומעים</p>
                 <p class="text-white/80 text-sm mt-1">האיורים הנקיים עוזרים לתינוק להתמקד במילה שנאמרת ולקשר למה שהוא רואה, ללא הסחות.</p>
               </div>
               <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
-                <iconify-icon icon="lucide:heart" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:heart" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
                 <p class="text-white text-sm font-semibold leading-snug">זמן איכות וקשב משותף</p>
                 <p class="text-white/80 text-sm mt-1">הקריאה המשותפת יוצרת רגע של חיבור רגשי, המהווה את הבסיס הכי חשוב ללמידת תקשורת ושפה.</p>
               </div>
@@ -542,7 +559,7 @@
             <!-- CTA -->
             <div class="mt-8 flex flex-col sm:flex-row gap-4">
               <a id="book-buy-link" href="https://www.meshulam.co.il/purchase?p=706167655f69643d3337343126627573696e6573735f69643d3130353038" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-sage text-white font-semibold text-base rounded-full btn-primary shadow-lg hover:bg-sage-dark transition-colors">
-                <iconify-icon icon="lucide:shopping-bag" class="text-lg"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:shopping-bag" class="text-lg"></iconify-icon>
                 לרכישת הספר
               </a>
             </div>
@@ -564,17 +581,17 @@
         <!-- Benefits -->
         <div class="mt-10 grid sm:grid-cols-3 gap-6 text-right">
           <div class="bg-warm-50 rounded-2xl p-5 border border-warm-200/60">
-            <div class="flex justify-center mb-3"><iconify-icon icon="lucide:lightbulb" class="text-2xl text-sage"></iconify-icon></div>
+            <div class="flex justify-center mb-3"><iconify-icon aria-hidden="true" icon="lucide:lightbulb" class="text-2xl text-sage"></iconify-icon></div>
             <p class="text-sm font-semibold text-warm-900 text-center">טיפים מקצועיים</p>
             <p class="text-sm text-warm-700 mt-1 text-center">איך הופכים טיול בחוץ, משחק בבית או זמן אמבטיה להזדמנות מהנה לקידום השפה והתקשורת של התינוק</p>
           </div>
           <div class="bg-warm-50 rounded-2xl p-5 border border-warm-200/60">
-            <div class="flex justify-center mb-3"><iconify-icon icon="lucide:bell" class="text-2xl text-sage"></iconify-icon></div>
+            <div class="flex justify-center mb-3"><iconify-icon aria-hidden="true" icon="lucide:bell" class="text-2xl text-sage"></iconify-icon></div>
             <p class="text-sm font-semibold text-warm-900 text-center">עדכונים לפני כולם</p>
             <p class="text-sm text-warm-700 mt-1 text-center">תהיו הראשונים לדעת על פתיחת קורסים חדשים, הרצאות קרובות ואירועים מיוחדים להורים ולתינוקות</p>
           </div>
           <div class="bg-warm-50 rounded-2xl p-5 border border-warm-200/60">
-            <div class="flex justify-center mb-3"><iconify-icon icon="lucide:leaf" class="text-2xl text-sage"></iconify-icon></div>
+            <div class="flex justify-center mb-3"><iconify-icon aria-hidden="true" icon="lucide:leaf" class="text-2xl text-sage"></iconify-icon></div>
             <p class="text-sm font-semibold text-warm-900 text-center">שקט, ממוקד ובגובה העיניים</p>
             <p class="text-sm text-warm-700 mt-1 text-center">קבוצה שקטה ללא "חפירות", שמרכזת עבורך רק את התכנים הכי מעניינים וחשובים, בלי להעמיס על סדר היום</p>
           </div>
@@ -583,7 +600,7 @@
         <div class="mt-10">
           <a href="https://chat.whatsapp.com/KlA0q0KjTgEJAKyt7ZfoYN" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 bg-sage text-white font-semibold text-base rounded-full btn-primary shadow-lg shadow-sage/20 hover:bg-sage-dark">
-            <iconify-icon icon="fa6-brands:whatsapp" class="text-xl"></iconify-icon>
+            <iconify-icon aria-hidden="true" icon="fa6-brands:whatsapp" class="text-xl"></iconify-icon>
             להצטרפות לקבוצה השקטה בוואטסאפ
           </a>
         </div>
@@ -609,6 +626,8 @@
               class="w-full h-full"
               controls
               preload="metadata"
+              title="סרטון מאת נועה פרידמן - טיפים לקידום שפה ותקשורת"
+              aria-label="סרטון מאת נועה פרידמן - טיפים לקידום שפה ותקשורת"
             >
               <source src="VID-20251211-WA0016.mp4" type="video/mp4">
             </video>
@@ -619,12 +638,12 @@
         <div class="mt-12 text-center flex flex-col sm:flex-row items-center justify-center gap-4">
           <a href="https://www.youtube.com/@noa.start2talk" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-sage text-white font-semibold text-base rounded-full border-2 border-transparent btn-primary shadow-lg shadow-sage/20 hover:bg-sage-dark">
-            <iconify-icon icon="lucide:youtube" class="text-lg"></iconify-icon>
+            <iconify-icon aria-hidden="true" icon="lucide:youtube" class="text-lg"></iconify-icon>
             לערוץ היוטיוב שלי
           </a>
           <a href="https://meshulam.co.il/purchase?b=f2f4e23c9ac123baf48162daadb08ed3" target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-transparent text-warm-800 font-medium text-base rounded-full border-2 border-warm-800/50 hover:bg-warm-800/10 btn-secondary shadow-md shadow-black/10">
-            <iconify-icon icon="lucide:ticket" class="text-lg"></iconify-icon>
+            <iconify-icon aria-hidden="true" icon="lucide:ticket" class="text-lg"></iconify-icon>
             להרצאה &quot;מהבכי הראשון למילה הראשונה&quot;
           </a>
         </div>
@@ -674,7 +693,7 @@
             <div id="testimonials-track" class="flex gap-6 transition-transform duration-500 ease-in-out">
               <!-- Testimonial 1 -->
               <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/2 bg-warm-50 rounded-2xl p-7 border border-warm-200/60 text-right">
-                <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
                 <p class="text-base text-warm-700 leading-relaxed flex-1">"נועה היא קלינאית מדהימה עם לב ענק. ההרצאות שלה פתחו לי עיניים לגבי ההתפתחות של הילדים שלי."</p>
                 <div class="mt-5 flex items-center gap-3">
                   <div class="w-9 h-9 bg-taupe rounded-full flex items-center justify-center">
@@ -688,7 +707,7 @@
               </div>
               <!-- Testimonial 2 -->
               <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/2 bg-warm-50 rounded-2xl p-7 border border-warm-200/60 text-right">
-                <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
                 <p class="text-base text-warm-700 leading-relaxed flex-1">"גישה מקצועית, עדכנית ומבוססת מחקר. נועה מצליחה להעביר מידע מורכב בצורה ברורה ונגישה להורים."</p>
                 <div class="mt-5 flex items-center gap-3">
                   <div class="w-9 h-9 bg-sage rounded-full flex items-center justify-center">
@@ -702,7 +721,7 @@
               </div>
               <!-- Testimonial 3 -->
               <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/2 bg-warm-50 rounded-2xl p-7 border border-warm-200/60 text-right">
-                <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
                 <p class="text-base text-warm-700 leading-relaxed flex-1">"הקורס של נועה שינה את הדרך שבה אני מתקשרת עם הבן שלי. כלים אמיתיים שעובדים כבר מהיום הראשון."</p>
                 <div class="mt-5 flex items-center gap-3">
                   <div class="w-9 h-9 bg-taupe-dark rounded-full flex items-center justify-center">
@@ -716,7 +735,7 @@
               </div>
               <!-- Testimonial 4 -->
               <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/2 bg-warm-50 rounded-2xl p-7 border border-warm-200/60 text-right">
-                <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
                 <p class="text-base text-warm-700 leading-relaxed flex-1">"לאחר ייעוץ אחד עם נועה הבנתי מה הילד שלי מנסה לתקשר. שיחה אחת שינתה הכל."</p>
                 <div class="mt-5 flex items-center gap-3">
                   <div class="w-9 h-9 bg-warm-600 rounded-full flex items-center justify-center">
@@ -730,7 +749,7 @@
               </div>
               <!-- Testimonial 5 -->
               <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/2 bg-warm-50 rounded-2xl p-7 border border-warm-200/60 text-right">
-                <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
                 <p class="text-base text-warm-700 leading-relaxed flex-1">"הספר 'שלום פרפר' היה מתנה הכי טובה שקיבלנו. כבר ביום הראשון התחלנו לשחק עם הבת שלנו אחרת."</p>
                 <div class="mt-5 flex items-center gap-3">
                   <div class="w-9 h-9 bg-taupe rounded-full flex items-center justify-center">
@@ -744,7 +763,7 @@
               </div>
               <!-- Testimonial 6 -->
               <div class="testimonial-card flex-shrink-0 w-full md:w-1/2 lg:w-1/2 bg-warm-50 rounded-2xl p-7 border border-warm-200/60 text-right">
-                <iconify-icon icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
+                <iconify-icon aria-hidden="true" icon="lucide:quote" class="text-2xl text-taupe/40 mb-4 block"></iconify-icon>
                 <p class="text-base text-warm-700 leading-relaxed flex-1">"נועה מסבירה דברים בצורה כל כך ברורה ומרגשת. אחרי ההרצאה יצאתי עם תחושת ביטחון שלא הכרתי."</p>
                 <div class="mt-5 flex items-center gap-3">
                   <div class="w-9 h-9 bg-sage-dark rounded-full flex items-center justify-center">
@@ -761,12 +780,12 @@
 
           <!-- Dot navigation -->
           <div id="testimonial-dots" class="flex justify-center gap-2 mt-8">
-            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-taupe transition-all" data-index="0"></button>
-            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="1"></button>
-            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="2"></button>
-            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="3"></button>
-            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="4"></button>
-            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="5"></button>
+            <button class="testimonial-dot w-2.5 h-2.5 rounded-full bg-taupe transition-all" data-index="0" aria-label="עבור להמלצה 1" aria-current="true"></button>
+            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="1" aria-label="עבור להמלצה 2"></button>
+            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="2" aria-label="עבור להמלצה 3"></button>
+            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="3" aria-label="עבור להמלצה 4"></button>
+            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="4" aria-label="עבור להמלצה 5"></button>
+            <button class="testimonial-dot w-2 h-2 rounded-full bg-warm-300 transition-all" data-index="5" aria-label="עבור להמלצה 6"></button>
           </div>
           </div>
           </div>
@@ -852,14 +871,14 @@
           <form class="mt-10 max-w-lg mx-auto" id="contact-form" onsubmit="sendToWhatsApp(); return false;">
             <div class="grid grid-cols-1 gap-4 mb-4">
               <label for="contact-name" class="sr-only">שם מלא</label>
-              <input id="contact-name" type="text" placeholder="שם מלא" class="w-full px-5 py-3.5 bg-warm-50 border border-warm-200 rounded-xl text-sm text-warm-800 placeholder-warm-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-transparent transition-all">
+              <input id="contact-name" type="text" placeholder="שם מלא" autocomplete="name" required aria-required="true" class="w-full px-5 py-3.5 bg-warm-50 border border-warm-200 rounded-xl text-sm text-warm-800 placeholder-warm-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-transparent transition-all">
               <label for="contact-phone" class="sr-only">טלפון</label>
-              <input id="contact-phone" type="tel" dir="rtl" placeholder="טלפון" class="w-full px-5 py-3.5 bg-warm-50 border border-warm-200 rounded-xl text-sm text-warm-800 placeholder-warm-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-transparent transition-all">
+              <input id="contact-phone" type="tel" dir="rtl" placeholder="טלפון" autocomplete="tel" class="w-full px-5 py-3.5 bg-warm-50 border border-warm-200 rounded-xl text-sm text-warm-800 placeholder-warm-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-transparent transition-all">
             </div>
             <label for="contact-message" class="sr-only">הודעה</label>
             <textarea id="contact-message" placeholder="נושא הפנייה (ייעוץ אישי / קורס להורים / הרצאה לארגון / רכישת הספר)" rows="4" class="w-full px-5 py-3.5 bg-warm-50 border border-warm-200 rounded-xl text-sm text-warm-800 placeholder-warm-400 focus:outline-none focus:ring-2 focus:ring-sage/50 focus:border-transparent transition-all resize-none mb-6"></textarea>
             <button type="submit" class="w-full px-8 py-4 bg-sage text-white font-semibold text-base rounded-full btn-primary shadow-lg shadow-sage/20 hover:bg-sage-dark flex items-center justify-center gap-2 mx-auto">
-              <iconify-icon icon="fa6-brands:whatsapp" class="text-xl"></iconify-icon>
+              <iconify-icon aria-hidden="true" icon="fa6-brands:whatsapp" class="text-xl"></iconify-icon>
               שליחה בוואטסאפ
             </button>
           </form>
@@ -881,14 +900,14 @@
 נעים מאוד, אני נועה פרידמן, קלינאית תקשורת שמלווה הורים ותינוקות ברגעים שבהם הכל מתחיל. הרבה לפני המילים הראשונות, התינוק שלך כבר "מדבר" איתך דרך המבט, החיוך והתנועות שלו. הזמן הזה, ממש עכשיו, הוא ההזדמנות הכי טובה שלך לעזור לו לבנות בסיס חזק לשפה, לחשיבה וללמידה. אני כאן כדי להראות לך כמה כוח יש בידיים שלך כהורה, ולתת לך כלים פשוטים ומהנים שיהפכו את הרגעים היומיומיים שלכם למנוף להתפתחות ולצמיחה.            </p>
             <!-- Social -->
             <div class="flex gap-3 mt-6">
-              <a id="footer-facebook-link" href="https://www.facebook.com/talk2noa" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
-                <iconify-icon icon="lucide:facebook" class="text-lg text-warm-200"></iconify-icon>
+              <a id="footer-facebook-link" href="https://www.facebook.com/talk2noa" target="_blank" rel="noopener noreferrer" aria-label="פייסבוק - מתחילים לדבר (נפתח בחלון חדש)" class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
+                <iconify-icon aria-hidden="true" icon="lucide:facebook" class="text-lg text-warm-200"></iconify-icon>
               </a>
-              <a id="footer-whatsapp-link" href="https://chat.whatsapp.com/KlA0q0KjTgEJAKyt7ZfoYN" target="_blank" class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
-                <iconify-icon icon="fa6-brands:whatsapp" class="text-lg text-warm-200"></iconify-icon>
+              <a id="footer-whatsapp-link" href="https://chat.whatsapp.com/KlA0q0KjTgEJAKyt7ZfoYN" target="_blank" rel="noopener noreferrer" aria-label="קהילת ווצאפ - מתחילים לדבר (נפתח בחלון חדש)" class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
+                <iconify-icon aria-hidden="true" icon="fa6-brands:whatsapp" class="text-lg text-warm-200"></iconify-icon>
               </a>
-              <a id="footer-youtube-link" href="https://www.youtube.com/@noa.start2talk" target="_blank" rel="noopener noreferrer" class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
-                <iconify-icon icon="lucide:youtube" class="text-lg text-warm-200"></iconify-icon>
+              <a id="footer-youtube-link" href="https://www.youtube.com/@noa.start2talk" target="_blank" rel="noopener noreferrer" aria-label="יוטיוב - ערוץ נועה פרידמן (נפתח בחלון חדש)" class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
+                <iconify-icon aria-hidden="true" icon="lucide:youtube" class="text-lg text-warm-200"></iconify-icon>
               </a>
             </div>
           </div>
@@ -915,13 +934,13 @@
             <ul class="space-y-4">
               <li class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-warm-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <iconify-icon icon="lucide:phone" class="text-sm text-warm-200"></iconify-icon>
+                  <iconify-icon aria-hidden="true" icon="lucide:phone" class="text-sm text-warm-200"></iconify-icon>
                 </div>
                 <a href="tel:+972524241685" class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors" dir="ltr">052-424-1685</a>
               </li>
               <li class="flex items-center gap-3">
                 <div class="w-9 h-9 bg-warm-800 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <iconify-icon icon="lucide:mail" class="text-sm text-warm-200"></iconify-icon>
+                  <iconify-icon aria-hidden="true" icon="lucide:mail" class="text-sm text-warm-200"></iconify-icon>
                 </div>
                 <a href="mailto:noa.start2talk@gmail.com" class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">noa.start2talk@gmail.com</a>
               </li>
@@ -946,10 +965,10 @@
   </div>
 
   <!-- Mobile WhatsApp FAB -->
-  <a id="whatsapp-fab" href="https://wa.me/972524241685" target="_blank" rel="noopener noreferrer"
+  <a id="whatsapp-fab" href="https://wa.me/972524241685" target="_blank" rel="noopener noreferrer" aria-label="שלחו הודעה בווצאפ לנועה פרידמן"
      class="fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full flex items-center justify-center shadow-xl transition-all duration-300 opacity-0 pointer-events-none desk:hidden"
      style="background-color: #25D366;">
-    <iconify-icon icon="fa6-brands:whatsapp" class="text-3xl text-white"></iconify-icon>
+    <iconify-icon aria-hidden="true" icon="fa6-brands:whatsapp" class="text-3xl text-white"></iconify-icon>
   </a>
 
   <script>
