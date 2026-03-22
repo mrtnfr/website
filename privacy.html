@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>מדיניות פרטיות | מתחילים לדבר</title>
+  <meta name="description" content="מדיניות הפרטיות של אתר מתחילים לדבר — נועה פרידמן, קלינאית תקשורת לגיל הרך.">
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://www.talk2noa.com/privacy.html">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            warm: {
+              50: '#FAF7F2', 100: '#F2EEE7', 200: '#E8E2D9', 300: '#D9D2C7',
+              400: '#C4B8AD', 500: '#A89080', 600: '#9B8B7E', 700: '#7D6F67',
+              800: '#5A524D', 900: '#3D3530',
+            },
+            taupe: { DEFAULT: '#A37D6A', dark: '#8B6A5A', light: '#C1A496' },
+            sage:  { DEFAULT: '#71A383', dark: '#5F9170' },
+          },
+          fontFamily: { headline: ['"Assistant"', 'sans-serif'] },
+          screens: { desk: '981px' },
+        }
+      }
+    }
+  </script>
+
+  <style>
+    * { font-family: 'Assistant', sans-serif; }
+    html, body { scroll-behavior: smooth; overflow-x: hidden; }
+
+    .skip-link {
+      position: absolute; top: -100%; right: 50%; transform: translateX(50%);
+      background: #71A383; color: white; padding: 10px 28px;
+      border-radius: 0 0 10px 10px; font-weight: 700; font-size: 1rem;
+      z-index: 10000; text-decoration: none;
+    }
+    .skip-link:focus { top: 0; outline: 3px solid #3D3530; outline-offset: 2px; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+
+    a:focus-visible, button:focus-visible {
+      outline: 2px solid #71A383; outline-offset: 2px; border-radius: 4px;
+    }
+
+    /* Prose typography */
+    .prose-rtl h2 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      color: #A37D6A;
+      margin-top: 2.25rem;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 2px solid #F2EEE7;
+    }
+    .prose-rtl p {
+      color: #5A524D;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+    }
+    .prose-rtl ul {
+      color: #5A524D;
+      line-height: 1.9;
+      margin-bottom: 1rem;
+      padding-right: 1.5rem;
+      list-style-type: disc;
+    }
+    .prose-rtl li { margin-bottom: 0.35rem; }
+    .prose-rtl a { color: #71A383; text-decoration: underline; }
+    .prose-rtl a:hover { color: #5F9170; }
+
+    .grain-overlay {
+      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none; z-index: 9999; opacity: 0.025;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+    }
+  </style>
+</head>
+
+<body class="bg-warm-50 text-warm-900">
+  <a href="#main-content" class="skip-link">דלג לתוכן הראשי</a>
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-warm-50/95 border-b border-warm-200" style="backdrop-filter: blur(12px);">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        <a href="/" aria-label="חזרה לדף הבית — מתחילים לדבר">
+          <img src="logo-dark.svg" alt="מתחילים לדבר — נועה פרידמן" class="h-8 w-auto" width="169" height="32">
+        </a>
+        <a href="/" class="inline-flex items-center gap-2 text-sm font-semibold text-warm-700 hover:text-taupe transition-colors">
+          <iconify-icon aria-hidden="true" icon="lucide:arrow-right" class="text-base"></iconify-icon>
+          חזרה לאתר
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main content -->
+  <main id="main-content">
+
+    <!-- Page hero strip -->
+    <div class="bg-taupe py-12 px-6">
+      <div class="max-w-3xl mx-auto text-right">
+        <p class="text-sm font-semibold text-white/70 mb-2 tracking-wide">מסמך משפטי</p>
+        <h1 class="font-headline text-3xl md:text-4xl font-bold text-white leading-tight">
+          מדיניות פרטיות
+        </h1>
+        <p class="mt-3 text-white/75 text-base">אתר מתחילים לדבר — נועה פרידמן</p>
+      </div>
+    </div>
+
+    <!-- Content -->
+    <div class="max-w-3xl mx-auto px-6 lg:px-8 py-14">
+      <article class="prose-rtl bg-white rounded-2xl shadow-sm border border-warm-100 p-8 md:p-12">
+
+        <p>
+          נועה פרידמן, מפעילת האתר מתחילים לדבר בכתובת
+          <a href="https://www.talk2noa.com">www.talk2noa.com</a>
+          (להלן: "האתר"), מכבדת את פרטיות המשתמשים ופועלת בהתאם לעקרונות שמירת הפרטיות
+          ככל הניתן ובהתאם לדין החל.
+        </p>
+        <p>
+          מטרת מדיניות פרטיות זו היא להסביר איזה מידע עשוי להימסר בעת יצירת קשר דרך האתר,
+          כיצד ייעשה בו שימוש, למי הוא עשוי להימסר ומהן זכויותיך ביחס למידע זה.
+        </p>
+
+        <h2>1. אופי השימוש באתר</h2>
+        <p>
+          האתר הוא אתר תדמית, ואינו כולל אזור אישי, מערכת הרשמה או רכישה מקוונת.
+          אמצעי יצירת הקשר באתר נועדו לאפשר פנייה יזומה של המשתמש לעסק.
+        </p>
+
+        <h2>2. מידע הנמסר בעת יצירת קשר</h2>
+        <p>
+          כאשר אתה בוחר לפנות לעסק באמצעות מנגנון יצירת הקשר באתר (כגון כפתור או טופס המפנים
+          ל־WhatsApp), באפשרותך למסור מרצונך מידע כגון שם, מספר טלפון ותוכן הפנייה,
+          בהתאם למה שתבחר לכתוב או לשלוח.
+        </p>
+        <p>
+          לפי האופן שבו האתר פועל, האתר עצמו אינו שומר את נתוני הטופס או ההודעה,
+          אלא מפנה אותך לשירות WhatsApp לצורך המשך יצירת קשר.
+        </p>
+
+        <h2>3. נתוני שימוש טכניים ו־Cloudflare</h2>
+        <p>
+          ייתכן שייאספו באופן אוטומטי נתוני שימוש טכניים בסיסיים הנדרשים לתפעול ואבטחת האתר,
+          כגון כתובת IP, סוג דפדפן, סוג מכשיר, דפי מקור ויעד וזמני גישה, בהתאם לקונפיגורציה
+          של שירותי האחסון והאבטחה.
+        </p>
+        <p>
+          האתר עושה שימוש בשירותי אבטחה וביצועים של Cloudflare (Cloudflare, Inc.) לצורך הגנה
+          על האתר, סינון תעבורה זדונית ומדידת ביצועים בסיסית. שירות זה עשוי לאסוף ולנתח
+          נתוני תעבורה טכניים לצורך הפעלת השירותים, בהתאם למדיניות הפרטיות של Cloudflare
+          ולדין החל.
+        </p>
+        <p>
+          למיטב הידיעה, באתר זה לא נעשה שימוש ב־Google Analytics, בפיקסל של Facebook
+          או בכלי מעקב שיווקיים דומים לצורכי פרסום ממוקד.
+        </p>
+
+        <h2>4. מטרות השימוש במידע</h2>
+        <p>המידע הנמסר במסגרת הפנייה ישמש, בין היתר, למטרות הבאות:</p>
+        <ul>
+          <li>יצירת קשר איתך ומענה לפנייתך;</li>
+          <li>טיפול בבקשות, בירורים ופניות שירות;</li>
+          <li>ניהול תקין של הקשר בינך לבין העסק;</li>
+          <li>שיפור השירותים והתהליכים, בכפוף לדין החל;</li>
+          <li>עמידה בהוראות דין, הוראות כל רשות מוסמכת או צו שיפוטי, ככל שיידרש.</li>
+        </ul>
+
+        <h2>5. חובה או רשות למסירת המידע</h2>
+        <p>
+          מסירת המידע נעשית מרצונך החופשי. אינך חייב על פי חוק למסור פרטים אישיים באמצעות
+          האתר או באמצעות WhatsApp.
+        </p>
+        <p>
+          יחד עם זאת, ללא מסירת פרטי קשר בסיסיים או תוכן פנייה, ייתכן שלא ניתן יהיה להשיב
+          לפנייתך או לטפל בה כנדרש.
+        </p>
+
+        <h2>6. העברת מידע לצדדים שלישיים</h2>
+        <p>המידע הנמסר במסגרת הפנייה אינו נמכר לצדדים שלישיים.</p>
+        <p>
+          עם זאת, כאשר אתה בוחר לפנות באמצעות WhatsApp, המידע שאתה מוסר במסגרת אותה פנייה
+          נמסר גם ל־WhatsApp / WhatsApp Business, שהינם שירותים של צד שלישי, והשימוש בהם
+          כפוף גם לתנאי השימוש ומדיניות הפרטיות שלהם.
+        </p>
+        <p>
+          בנוסף, מידע עשוי להימסר לרשויות מוסמכות או לגופים אחרים אם הדבר נדרש
+          לפי כל דין, צו שיפוטי או דרישה של רשות מוסמכת.
+        </p>
+
+        <h2>7. אבטחת מידע</h2>
+        <p>
+          מפעילת האתר נוקטת באמצעים סבירים ומקובלים, במטרה לצמצם את הסיכונים הנלווים
+          לאחסון ולעיבוד מידע ולהגן ככל האפשר על המידע מפני גישה בלתי מורשית, שימוש לרעה,
+          אובדן, שינוי או השמדה.
+        </p>
+        <p>
+          יחד עם זאת, אין באפשרותה של מפעילת האתר להבטיח אבטחה מוחלטת של מערכות מידע
+          ותקשורת, והשימוש נעשה על אחריותך.
+        </p>
+
+        <h2>8. שמירת מידע</h2>
+        <p>
+          המידע הנמסר בפועל נשמר בעיקר במסגרת ערוצי התקשורת שבאמצעותם נוהלה הפנייה (למשל,
+          יומן שיחות, הודעות WhatsApp או יישומי תקשורת אחרים).
+        </p>
+        <p>
+          במידה שייעשה תיעוד מסודר של פניות, הוא יישמר למשך התקופה הדרושה באופן סביר לצורך
+          טיפול בפנייה, ניהול קשרי לקוחות, עמידה בהוראות דין והגנה על זכויות משפטיות —
+          ולאחר מכן יימחק או יישמר בצורה מצומצמת, בהתאם לצורך הסביר ולדין החל.
+        </p>
+
+        <h2>9. זכות לעיין ולתקן מידע</h2>
+        <p>
+          בכפוף לדין החל, עומדת לך הזכות לעיין במידע אישי המתייחס אליך, ככל שמוחזק בידי
+          מפעילת האתר, וכן לבקש את תיקונו אם נמצא שהוא שגוי, לא שלם או לא מעודכן.
+        </p>
+        <p>
+          בקשות לעיון או לתיקון ניתן להפנות למפעילת האתר באמצעות פרטי הקשר המפורטים להלן.
+        </p>
+
+        <h2>10. יצירת קשר בנושא פרטיות</h2>
+        <p>לשאלות, בקשות או בירורים בנוגע למדיניות פרטיות זו ניתן לפנות אל:</p>
+        <p>
+          נועה פרידמן<br>
+          טלפון: <a href="tel:0524241685" dir="ltr">052-424-1685</a><br>
+          דוא"ל: <a href="mailto:noa.start2talk@gmail.com">noa.start2talk@gmail.com</a>
+        </p>
+
+        <h2>11. שינויים במדיניות זו</h2>
+        <p>
+          מפעילת האתר רשאית לעדכן, לשנות או להחליף את הוראות מדיניות פרטיות זו, כולם או
+          חלקם, מעת לעת. הנוסח המחייב הוא הנוסח המתפרסם באתר במועד השימוש.
+        </p>
+
+        <p class="mt-8 pt-6 border-t border-warm-100 text-sm text-warm-500">
+          <strong>עודכן לאחרונה: 22 במרץ 2026</strong>
+        </p>
+
+      </article>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-warm-900 text-warm-200 py-16">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="grid md:grid-cols-2 gap-12">
+
+        <!-- Brand -->
+        <div>
+          <div class="mb-5">
+            <img src="logo-light.svg" alt="מתחילים לדבר" style="width:273.75px; object-fit:contain;" width="274" height="52">
+          </div>
+          <p class="text-warm-300/70 text-sm leading-relaxed max-w-xs">
+            נועה פרידמן, קלינאית תקשורת לגיל הרך. מלווה הורים ותינוקות בקידום שפה, תקשורת והתפתחות.
+          </p>
+          <div class="flex gap-3 mt-6">
+            <a href="https://www.facebook.com/talk2noa" target="_blank" rel="noopener noreferrer"
+               aria-label="פייסבוק - מתחילים לדבר (נפתח בחלון חדש)"
+               class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
+              <iconify-icon aria-hidden="true" icon="lucide:facebook" class="text-lg text-warm-200"></iconify-icon>
+            </a>
+            <a href="https://chat.whatsapp.com/KlA0q0KjTgEJAKyt7ZfoYN" target="_blank" rel="noopener noreferrer"
+               aria-label="קהילת ווצאפ - מתחילים לדבר (נפתח בחלון חדש)"
+               class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
+              <iconify-icon aria-hidden="true" icon="fa6-brands:whatsapp" class="text-lg text-warm-200"></iconify-icon>
+            </a>
+            <a href="https://www.youtube.com/@noa.start2talk" target="_blank" rel="noopener noreferrer"
+               aria-label="יוטיוב - ערוץ נועה פרידמן (נפתח בחלון חדש)"
+               class="w-10 h-10 bg-warm-800 rounded-xl flex items-center justify-center hover:bg-warm-700 transition-colors">
+              <iconify-icon aria-hidden="true" icon="lucide:youtube" class="text-lg text-warm-200"></iconify-icon>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links + Contact -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+          <div>
+            <h4 class="font-headline text-base font-bold text-warm-50 mb-5">ניווט מהיר</h4>
+            <ul class="space-y-3">
+              <li><a href="/#hero"      class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">דף הבית</a></li>
+              <li><a href="/#services"  class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">ייעוץ והרצאות</a></li>
+              <li><a href="/#book"      class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">הספר "שלום פרפר"</a></li>
+              <li><a href="/#community" class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">קהילה</a></li>
+              <li><a href="/#youtube"   class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">סרטונים</a></li>
+              <li><a href="/#about"     class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">אודות</a></li>
+              <li><a href="/#contact"   class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">יצירת קשר</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-headline text-base font-bold text-warm-50 mb-5">צרו קשר</h4>
+            <ul class="space-y-4">
+              <li class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-warm-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <iconify-icon aria-hidden="true" icon="lucide:phone" class="text-sm text-warm-200"></iconify-icon>
+                </div>
+                <a href="tel:+972524241685" class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors" dir="ltr">052-424-1685</a>
+              </li>
+              <li class="flex items-center gap-3">
+                <div class="w-9 h-9 bg-warm-800 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <iconify-icon aria-hidden="true" icon="lucide:mail" class="text-sm text-warm-200"></iconify-icon>
+                </div>
+                <a href="mailto:noa.start2talk@gmail.com" class="text-sm text-warm-300/70 hover:text-warm-50 transition-colors">noa.start2talk@gmail.com</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="mt-14 pt-6 border-t border-warm-800">
+        <div class="flex flex-col md:flex-row items-center justify-between gap-3">
+          <span class="text-xs text-warm-300/50">© <span id="copyright-year"></span> מתחילים לדבר — נועה פרידמן. כל הזכויות שמורות.</span>
+          <div class="flex gap-6">
+            <a href="privacy.html" class="text-xs text-warm-200 font-semibold transition-colors">מדיניות פרטיות</a>
+            <a href="#" class="text-xs text-warm-300/50 hover:text-warm-200 transition-colors">תנאי שימוש</a>
+            <a href="#" class="text-xs text-warm-300/50 hover:text-warm-200 transition-colors">נגישות</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    document.getElementById('copyright-year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
