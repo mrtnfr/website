@@ -10,89 +10,14 @@
 
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-
-  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="/style.css">
   <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
 
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            warm: {
-              50: '#FAF7F2', 100: '#F2EEE7', 200: '#E8E2D9', 300: '#D9D2C7',
-              400: '#C4B8AD', 500: '#A89080', 600: '#9B8B7E', 700: '#7D6F67',
-              800: '#5A524D', 900: '#3D3530',
-            },
-            taupe: { DEFAULT: '#A37D6A', dark: '#8B6A5A', light: '#C1A496' },
-            sage:  { DEFAULT: '#71A383', dark: '#5F9170' },
-          },
-          fontFamily: { headline: ['"Assistant"', 'sans-serif'] },
-          screens: { desk: '981px' },
-        }
-      }
-    }
-  </script>
-
-  <style>
-    * { font-family: 'Assistant', sans-serif; }
-    html, body { scroll-behavior: smooth; overflow-x: hidden; }
-
-    .skip-link {
-      position: absolute; top: -100%; right: 50%; transform: translateX(50%);
-      background: #71A383; color: white; padding: 10px 28px;
-      border-radius: 0 0 10px 10px; font-weight: 700; font-size: 1rem;
-      z-index: 10000; text-decoration: none;
-    }
-    .skip-link:focus { top: 0; outline: 3px solid #3D3530; outline-offset: 2px; }
-
-    @media (prefers-reduced-motion: reduce) {
-      *, *::before, *::after {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-      }
-    }
-
-    a:focus-visible, button:focus-visible {
-      outline: 2px solid #71A383; outline-offset: 2px; border-radius: 4px;
-    }
-
-    .prose-rtl h2 {
-      font-size: 1.25rem;
-      font-weight: 700;
-      color: #71A383;
-      margin-top: 2.25rem;
-      margin-bottom: 0.75rem;
-      padding-bottom: 0.4rem;
-      border-bottom: 2px solid #F2EEE7;
-    }
-    .prose-rtl p {
-      color: #5A524D;
-      line-height: 1.9;
-      margin-bottom: 1rem;
-    }
-    .prose-rtl ul {
-      color: #5A524D;
-      line-height: 1.9;
-      margin-bottom: 1rem;
-      padding-right: 1.5rem;
-      list-style-type: disc;
-    }
-    .prose-rtl li { margin-bottom: 0.35rem; }
-    .prose-rtl a { color: #71A383; text-decoration: underline; }
-    .prose-rtl a:hover { color: #5F9170; }
-
-    .grain-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      pointer-events: none; z-index: 9999; opacity: 0.025;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
-    }
-  </style>
+  
 </head>
 
 <body class="bg-warm-50 text-warm-900">

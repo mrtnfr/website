@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global ─────────────────────────────────────────────── */
+html, body { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
+* { font-family: 'Assistant', sans-serif; }
+
+/* ── Skip link (accessibility) ───────────────────────────── */
+.skip-link {
+  position: absolute; top: -100%; right: 50%; transform: translateX(50%);
+  background: #71A383; color: white; padding: 10px 28px; border-radius: 0 0 10px 10px;
+  font-weight: 700; font-size: 1rem; z-index: 10000; text-decoration: none;
+}
+.skip-link:focus { top: 0; outline: 3px solid #3D3530; outline-offset: 2px; }
+
+/* ── Reduced motion ──────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ── Mobile font size boost ──────────────────────────────── */
+@media (max-width: 767px) {
+  .text-xs  { font-size: 0.875rem !important; line-height: 1.4rem !important; }
+  .text-sm  { font-size: 1rem !important; line-height: 1.6rem !important; }
+  .text-base{ font-size: 1.125rem !important; line-height: 1.75rem !important; }
+}
+
+/* ── Nav active state + focus ────────────────────────────── */
+.nav-link.active { color: #A37D6A !important; background: #F5EFE6; border-radius: 0.75rem; }
+.nav-link:focus-visible { outline: 2px solid #71A383; outline-offset: 2px; border-radius: 0.75rem; }
+a:focus-visible, button:focus-visible { outline: 2px solid #71A383; outline-offset: 2px; border-radius: 4px; }
+
+/* ── Scroll animations ───────────────────────────────────── */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-40px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50%       { transform: translateY(-8px); }
+}
+
+.anim-fade-up,
+.anim-fade-up-d1,
+.anim-fade-up-d2,
+.anim-fade-up-d3,
+.anim-fade-up-d4,
+.anim-fade-right,
+.anim-fade-left,
+.anim-scale { animation-play-state: paused; }
+.anim-visible { animation-play-state: running !important; }
+
+.anim-fade-up    { animation: fadeInUp 0.7s ease-out both; }
+.anim-fade-up-d1 { animation: fadeInUp 0.7s ease-out 0.12s both; }
+.anim-fade-up-d2 { animation: fadeInUp 0.7s ease-out 0.24s both; }
+.anim-fade-up-d3 { animation: fadeInUp 0.7s ease-out 0.36s both; }
+.anim-fade-up-d4 { animation: fadeInUp 0.7s ease-out 0.48s both; }
+.anim-fade-right { animation: fadeInRight 0.8s ease-out 0.3s both; }
+.anim-fade-left  { animation: fadeInLeft 0.8s ease-out 0.3s both; }
+.anim-scale      { animation: scaleIn 0.6s ease-out 0.2s both; }
+.float-anim      { animation: float 4s ease-in-out infinite; }
+
+/* ── Card & button hover effects ─────────────────────────── */
+.card-hover {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+}
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 48px -8px rgba(163, 125, 106, 0.25);
+}
+
+.btn-primary {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(113, 163, 131, 0.4);
+}
+
+.btn-secondary {
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.btn-secondary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px -5px rgba(163, 125, 106, 0.3);
+}
+
+/* ── Grain overlay ───────────────────────────────────────── */
+.grain-overlay {
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.025;
+  will-change: transform;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* ── Hero pattern ────────────────────────────────────────── */
+.hero-pattern {
+  background-image:
+    radial-gradient(circle at 20% 80%, rgba(255,255,255,0.08) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.05) 0%, transparent 50%);
+}
