@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "Preview HTML",
-      "runtimeExecutable": "C:\\Program Files\\Git\\usr\\bin\\perl.exe",
-      "runtimeArgs": ["server.pl"],
+      "runtimeExecutable": "C:\\Program Files\\nodejs\\npx.cmd",
+      "runtimeArgs": ["serve", "-l", "8000", "."],
       "port": 8000
     }
   ]

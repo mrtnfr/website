@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            warm: { 50: '#FAF7F2', 100: '#F2EEE7', 200: '#E8E2D9', 300: '#D9D2C7', 400: '#C4B8AD', 500: '#A89080', 600: '#9B8B7E', 700: '#7D6F67', 800: '#5A524D', 900: '#3D3530' },
+            taupe: { DEFAULT: '#A37D6A', dark: '#8B6A5A', light: '#C1A496' },
+            sage: { DEFAULT: '#71A383', dark: '#5F9170' },
+          },
+          fontFamily: { headline: ['"Assistant"', 'sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>* { font-family: 'Assistant', sans-serif; }</style>
+</head>
+<body>
+
+  <!-- Book section background context -->
+  <section style="background: #A37D6A;" class="py-16 px-6">
+    <div class="max-w-4xl mx-auto">
+
+      <!-- Above: the 6 feature cards grid (reference only, not the design target) -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 mb-10 opacity-40">
+        <div class="bg-white/20 rounded-xl p-4 text-right text-white"><p class="font-semibold text-sm">עידוד מחוות תקשורתיות</p></div>
+        <div class="bg-white/20 rounded-xl p-4 text-right text-white"><p class="font-semibold text-sm">למידה מתוך הקשר</p></div>
+        <div class="bg-white/20 rounded-xl p-4 text-right text-white"><p class="font-semibold text-sm">מילים שקל וכיף לחקות</p></div>
+        <div class="bg-white/20 rounded-xl p-4 text-right text-white"><p class="font-semibold text-sm">הרחבת אוצר המילים</p></div>
+        <div class="bg-white/20 rounded-xl p-4 text-right text-white"><p class="font-semibold text-sm">לראות בדיוק את מה ששומעים</p></div>
+        <div class="bg-white/20 rounded-xl p-4 text-right text-white"><p class="font-semibold text-sm">זמן איכות וקשב משותף</p></div>
+      </div>
+
+      <!-- ===== DESIGN TARGET: Book recommendation / endorsement block ===== -->
+      <!-- Design this block. It sits between the grid above and the purchase CTA below. -->
+      <!-- It should feel like a warm, credible spotlight — more prominent than the cards above. -->
+      <!-- Placeholder content: quote text, expert name, expert role -->
+
+      <div class="my-10 bg-white/15 backdrop-blur-sm rounded-2xl p-8 text-right border border-white/20">
+        <p class="text-white/30 text-5xl font-bold leading-none mb-4">"</p>
+        <p class="text-white text-lg leading-relaxed font-medium">
+          ספר מרגש ומלמד שכל הורה צריך בבית. עוזר לתינוקות לפתח שפה דרך רגעים יומיומיים פשוטים ומלאי אהבה.
+        </p>
+        <div class="mt-6 flex items-center gap-4 justify-end">
+          <div class="text-right">
+            <p class="text-white font-bold text-sm">שם המומחה / ממליץ</p>
+            <p class="text-white/70 text-xs">תפקיד ותואר מקצועי</p>
+          </div>
+          <div class="w-12 h-12 rounded-full bg-white/30 flex items-center justify-center flex-shrink-0">
+            <span class="text-white font-bold text-lg">מ</span>
+          </div>
+        </div>
+      </div>
+      <!-- ===== END DESIGN TARGET ===== -->
+
+      <!-- Below: the purchase CTA (reference only) -->
+      <div class="mt-10 text-center opacity-40">
+        <a class="inline-flex items-center gap-2 px-8 py-4 bg-sage text-white font-semibold text-base rounded-full">
+          לרכישת הספר
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+</body>
+</html>

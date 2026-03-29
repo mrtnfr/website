@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Section Preview — Recommendation in Image Column</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            warm: { 50:'#FAF7F2',100:'#F2EEE7',200:'#E8E2D9',300:'#D9D2C7',400:'#C4B8AD',500:'#A89080',600:'#9B8B7E',700:'#7D6F67',800:'#5A524D',900:'#3D3530' },
+            taupe: { DEFAULT:'#A37D6A', dark:'#8B6A5A', light:'#C1A496' },
+            sage:  { DEFAULT:'#71A383', dark:'#5F9170' },
+          },
+          fontFamily: { headline: ['"Assistant"','sans-serif'] },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    * { font-family: 'Assistant', sans-serif; }
+    .glass-glow { box-shadow: 0 0 20px rgba(255,255,255,0.1), inset 0 0 10px rgba(255,255,255,0.05); }
+  </style>
+</head>
+<body>
+
+  <section class="py-16 lg:py-20 relative overflow-hidden" style="background: #A37D6A;">
+    <!-- Decorative circles -->
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-10 right-10 w-40 h-40 border-2 border-white rounded-full"></div>
+      <div class="absolute bottom-10 left-20 w-60 h-60 border border-white rounded-full"></div>
+      <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 border border-white rounded-full"></div>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+      <div class="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
+        <!-- RIGHT COLUMN: Book Image + Recommendation block -->
+        <div class="flex flex-col gap-8">
+
+          <!-- Book image mockup -->
+          <div class="relative flex justify-center">
+            <div class="relative">
+              <div class="bg-white rounded-2xl p-6 shadow-2xl shadow-black/15 max-w-sm mx-auto transform -rotate-2 hover:rotate-0 transition-transform duration-500">
+                <div class="w-full h-64 bg-gradient-to-br from-taupe/20 to-taupe/40 rounded-xl flex items-center justify-center">
+                  <div class="text-center">
+                    <iconify-icon icon="lucide:book-open" class="text-6xl text-white/60"></iconify-icon>
+                    <p class="text-white/80 text-sm mt-2 font-medium">תמונת הספר</p>
+                  </div>
+                </div>
+                <div class="mt-4 text-center">
+                  <h3 class="font-headline text-lg font-bold text-warm-900">שלום פרפר</h3>
+                  <p class="text-warm-600 text-sm mt-1">מאת נועה פרידמן</p>
+                </div>
+              </div>
+              <div class="absolute -top-4 -left-4 bg-white rounded-full w-20 h-20 flex items-center justify-center shadow-lg transform rotate-12">
+                <div class="text-center">
+                  <span class="block text-xs font-bold leading-tight text-taupe">הספר</span>
+                  <span class="block text-xs font-bold leading-tight text-taupe">המושלם</span>
+                  <span class="block text-xs font-bold leading-tight text-taupe">לתינוקות</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Variant 1 Frosted-Glass Recommendation Block (in image column) -->
+          <div class="relative bg-white/10 backdrop-blur-xl rounded-[2rem] p-7 border border-white/30 glass-glow">
+            <div class="absolute top-5 left-6 opacity-60">
+              <iconify-icon icon="lucide:leaf" class="text-white/30 text-2xl"></iconify-icon>
+            </div>
+            <!-- Big decorative quote mark -->
+            <div class="absolute -top-8 -right-4 opacity-10 pointer-events-none">
+              <iconify-icon icon="ri:double-quotes-r" class="text-white text-8xl"></iconify-icon>
+            </div>
+            <!-- Quote text -->
+            <p class="text-white text-base leading-relaxed font-medium text-right relative z-10">
+              "טקסט ההמלצה יופיע כאן — ציטוט מהמומחה על הספר, מה הוא נותן להורים ולתינוקות."
+            </p>
+            <!-- Author row -->
+            <div class="mt-5 flex items-center gap-4 justify-start border-t border-white/20 pt-4">
+              <div class="w-11 h-11 rounded-xl bg-white/20 flex items-center justify-center flex-shrink-0 shadow">
+                <span class="text-white font-bold text-base">מ</span>
+              </div>
+              <div class="text-right">
+                <p class="text-white font-bold text-sm">שם המומחה / ממליץ</p>
+                <p class="text-white/70 text-xs">תפקיד ותואר מקצועי</p>
+              </div>
+              <div class="mr-auto flex items-center gap-1 text-white/50">
+                <iconify-icon icon="lucide:leaf" class="text-sm"></iconify-icon>
+                <span class="text-xs font-semibold">המלצת המומחים</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- LEFT COLUMN: Title, paragraph, 6 feature cards, CTA -->
+        <div class="text-right">
+          <h2 class="font-headline text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight leading-tight">
+            הספר שילווה אתכם<br>מהרגע הראשון
+          </h2>
+          <p class="mt-5 text-lg text-white/90 leading-relaxed max-w-lg">
+            הצטרפו אל הפרפר למסע נעים, דרך איורים ייחודיים ותוכן מעודד שפה. בספר תפגשו מילים מקדמות תקשורת וקלות לחיקוי. המילים מוגשות בתוך רצף והקשר הגיוני, מה שיסייע לתינוק או פעוט ללמוד אותן.
+          </p>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
+              <iconify-icon icon="lucide:hand-metal" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+              <p class="text-white text-xs font-semibold leading-snug">עידוד מחוות תקשורתיות</p>
+              <p class="text-white/70 text-xs mt-1">הספר מזמין את התינוק להצביע, לנפנף לשלום ולתקשר עוד לפני המילים הראשונות.</p>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
+              <iconify-icon icon="lucide:message-square-text" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+              <p class="text-white text-xs font-semibold leading-snug">למידה מתוך הקשר</p>
+              <p class="text-white/70 text-xs mt-1">בזכות חזרה על מילים בתוך רצף הגיוני, התינוק קולט שפה חדשה בקלות ובצורה הכי טבעית שיש.</p>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
+              <iconify-icon icon="lucide:repeat-2" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+              <p class="text-white text-xs font-semibold leading-snug">מילים שקל וכיף לחקות</p>
+              <p class="text-white/70 text-xs mt-1">בחרתי עבורכם מילים פשוטות וקלות להגייה המעודדות התנסות בחיקוי קולי.</p>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
+              <iconify-icon icon="lucide:lightbulb" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+              <p class="text-white text-xs font-semibold leading-snug">הרחבת אוצר המילים</p>
+              <p class="text-white/70 text-xs mt-1">מעבר למילים בודדות, הספר חושף את הפעוט למושגים, צירופים ומשפטים קצרים.</p>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
+              <iconify-icon icon="lucide:image" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+              <p class="text-white text-xs font-semibold leading-snug">לראות בדיוק את מה ששומעים</p>
+              <p class="text-white/70 text-xs mt-1">האיורים הנקיים עוזרים לתינוק להתמקד במילה שנאמרת ולקשר למה שהוא רואה, ללא הסחות.</p>
+            </div>
+            <div class="bg-white/20 backdrop-blur-sm rounded-xl p-4 text-right">
+              <iconify-icon icon="lucide:heart" class="text-2xl text-white/80 mb-2 block"></iconify-icon>
+              <p class="text-white text-xs font-semibold leading-snug">זמן איכות וקשב משותף</p>
+              <p class="text-white/70 text-xs mt-1">הקריאה המשותפת יוצרת רגע של חיבור רגשי, המהווה את הבסיס הכי חשוב ללמידת תקשורת ושפה.</p>
+            </div>
+          </div>
+
+          <div class="mt-8 flex flex-col sm:flex-row gap-4">
+            <a class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-8 py-4 bg-sage text-white font-semibold text-base rounded-full shadow-lg cursor-default">
+              <iconify-icon icon="lucide:shopping-bag" class="text-lg"></iconify-icon>
+              לרכישת הספר
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</body>
+</html>

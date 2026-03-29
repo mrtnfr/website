@@ -9,15 +9,21 @@ When the user invokes this skill, do the following two things in order:
 
 ## Step 1: Push to GitHub
 
-1. Get the current branch name:
+1. Get the current branch name and check for uncommitted changes:
    ```bash
    git branch --show-current
+   git status
    ```
-2. Push it:
+2. Stage ALL modified and untracked files that belong to the project (not just `index.html`). This includes new images, HTML files, CSS, JS, or any other asset added or changed during the session. Exclude files that should not be committed (secrets, temp files, very large binaries). If unsure, check `.gitignore`.
+   ```bash
+   git add <file1> <file2> ...
+   ```
+3. If there are staged changes, commit them with a concise message describing what changed.
+4. Push:
    ```bash
    git push origin <current-branch>
    ```
-3. Report success or any error to the user.
+5. Report success or any error to the user.
 
 ## Step 2: Update project memory
 
